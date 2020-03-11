@@ -1,0 +1,43 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "GTSTRUDL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.gtstrudl",
+				"match": "\\b(?i)(STRUDL|FIN[ish]{0,3}|CINPUT|COUTPUT|FLIST|SCAN|BYPASS|UNI[ts]{0,2}|QUERY|DEFINE (GRO[up]{0,2}|GRP)|PRI[nt]{0,2} GRO[up]{0,2})\\b"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.dollar-sign.gtstrudl",
+				"begin": "\\$",
+				"end": "\n"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.quoted.single.gtstrudl",
+				"begin": "'",
+				"end": "'"
+			},
+			{
+				"name": "string.quoted.double.gtstrudl",
+				"begin": "\"",
+				"end": "\""
+			}]
+		}
+	},
+	"scopeName": "source.gti"
+}

@@ -1,0 +1,25 @@
+{
+    "name": "gtstrudl-syntax-highlighter",
+    "displayName": "gtstrudl syntax highlighter",
+    "description": "Syntax highlighting for GTSTRUDL structural analysis input files.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "gtstrudl",
+            "aliases": ["GTSTRUDL", "gtstrudl"],
+            "extensions": [".gti"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "gtstrudl",
+            "scopeName": "source.gti",
+            "path": "./syntaxes/gtstrudl.tmLanguage.json"
+        }]
+    }
+}
