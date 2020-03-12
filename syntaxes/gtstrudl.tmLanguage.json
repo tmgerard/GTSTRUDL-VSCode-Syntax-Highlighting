@@ -26,6 +26,9 @@
 				},
 				{
 					"include": "#geometry-commands"
+				},
+				{
+					"include": "#boundary-condition-commands"
 				}
 			]
 		},
@@ -172,6 +175,39 @@
 				{
 					"name": "keyword.define-object.gtstrudl",
 					"match": "\\b(?i)DEF[INE]{0,3} OBJ[ECT]{0,3}\\b"
+				},
+				{
+					"name": "keyword.print-object.gtstrudl",
+					"match": "\\b(?i)PRI[NT]{0,2} OBJ[ECT]{0,3}\\b"
+				},
+				{
+					"name": "keyword.move-object.gtstrudl",
+					"match": "\\b(?i)MOV[E]{0,1} OBJ[ECT]{0,3}\\b"
+				},
+				{
+					"name": "keyword.copy-object.gtstrudl",
+					"match": "\\b(?i)COPY OBJ[ECT]{0,3}\\b"
+				},
+				{
+					"name": "keyword.locate-interference-joints.gtstrudl",
+					"match": "\\b(?i)LOC[ATE]{0,3} INT[ERERENCE]{0,8} JOI[NTS]{0,3}( TOL[ERANCE]{0,6}){0,1}\\b"
+				},
+				{
+					"name": "keyword.locate-duplicate-joints.gtstrudl",
+					"match": "\\b(?i)LOC[ATE]{0,3} DUP[LICATE]{0,6} JOI[NTS]{0,3}( TOL[ERANCE]{0,6}){0,1}( AND){0,1}( REM[OVE]{0,3}){0,1}\\b"
+				}
+
+			]
+		},
+		"boundary-condition-commands":{
+			"patterns":[
+				{
+					"name": "keyword.member-properties.gtstrudl",
+					"match": "\\b(?i)MEM[BER]{0,3} PROP[ERTIES]{0,6} (T[ABLE]{0,4}|PRI[SMATIC]{0,6}|VAR[IABLE]{0,5}|I-SH[APE]{0,3}|PLA[TE]{0,2} GIR[DER]{0,3}|PIP[E]{0,1}|CHA[NNEL]{0,4}|POL[YGONAL]{0,6}( TUB[E]{0,1}){0,1})\\b"
+				},
+				{
+					"name": "keyword.element-properties.gtstrudl",
+					"match": "\\b(?i)ELEM[ENT]{0,3} PROP[ERTIES]{0,6}\\b"
 				}
 			]
 		}
