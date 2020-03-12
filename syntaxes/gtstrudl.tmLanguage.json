@@ -10,33 +10,170 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#constants"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.gtstrudl",
-				"match": "\\b(?i)(STRUDL|FIN[ish]{0,3}|CINPUT|COUTPUT|FLIST|SCAN|BYPASS|UNI[ts]{0,2}|QUERY|DEFINE (GRO[up]{0,2}|GRP)|PRI[nt]{0,2} GRO[up]{0,2})\\b"
-			}]
+			"patterns": [
+				{
+					"include": "#general-commands"
+				},
+				{
+					"include": "#geometry-commands"
+				}
+			]
 		},
 		"comments": {
-			"patterns": [{
-				"name": "comment.line.dollar-sign.gtstrudl",
-				"begin": "\\$",
-				"end": "\n"
-			}]
+			"patterns": [
+				{
+					"name": "comment.line.dollar-sign.gtstrudl",
+					"begin": "\\$",
+					"end": "\n"
+				}
+			]
 		},
 		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.single.gtstrudl",
+					"begin": "'",
+					"end": "'"
+				},
+				{
+					"name": "string.quoted.double.gtstrudl",
+					"begin": "\"",
+					"end": "\""
+				}
+			]
+		},
+		"variables":{
 			"patterns": [{
-				"name": "string.quoted.single.gtstrudl",
-				"begin": "'",
-				"end": "'"
-			},
-			{
-				"name": "string.quoted.double.gtstrudl",
-				"begin": "\"",
-				"end": "\""
-			}]
+					"name": "variable.language.gtstrudl",
+					"match": "\\b(?i)(X|Y|Z|AX|AY|AZ|IX|IY|IZ|\\W +S)\\b"
+				}
+			]
+		},
+		"constants":{
+			"patterns": [
+				{
+					"name": "constant.character.linebreak.gtstrudl",
+					"match": " -"
+				},
+				{
+					"name": "constant.language.units.gtstrudl",
+					"match": "\\b(?i)(IN[CHES]{0,4}|(FT|FEET)|CM|M|MM|LBS|KIP|TON|MTON|KG|N|KN|MN|RAD[IANS]{0,4}|DEG[RES]{0,4}|CYC[LES]{0,3}|FAH[RENHIT]{0,7}|CEN[TIGRADE]{0,7}|SEC[ONDS]{0,4}|MIN[UTES]{0,4}|HOU[RS]{0,2}|STAN[DAR]{0,4}|STDM[AS]{0,3}|GRAM|KGM|MTMN)\\b"
+				},
+				{
+					"name": "constant.numeric",
+					"match": "[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))"
+				}
+			]
+		},
+		"general-commands":{
+			"patterns": [
+				{
+					"name": "keyword.strudl.gtstrudl",
+					"match": "\\b(?i)STRUDL\\b"
+				},
+				{
+					"name": "keyword.finish.gtstrudl",
+					"match": "\\b(?i)FIN[ish]{0,3}\\b"
+				},
+				{
+					"name": "keyword.cinput.gtstrudl",
+					"match": "\\b(?i)CINPUT( STA[NDARD]{0,5}| RES[UME]{0,3}){0,1}\\b"
+				},
+				{
+					"name": "keyword.coutput.gtstrudl",
+					"match": "\\b(?i)COUTPUT( APP[END]{0,3}| REP[LACE]{0,4}| STA[NDARD]{0,5}){0,1}\\b"
+				},
+				{
+					"name": "keyword.flist.gtstrudl",
+					"match": "\\b(?i)FLIST\\b"
+				},
+				{
+					"name": "keyword.scan.gtstrudl",
+					"match": "\\b(?i)SCAN( ON| OFF){1}\\b"
+				},
+				{
+					"name": "keyword.bypass.gtstrudl",
+					"match": "\\b(?i)BYPASS\\b"
+				},
+				{
+					"name": "keyword.units.gtstrudl",
+					"match": "\\b(?i)UNI[ts]{0,2}\\b"
+				},
+				{
+					"name": "keyword.query.gtstrudl",
+					"match": "\\b(?i)QUERY\\b"
+				},
+				{
+					"name": "keyword.define-group.gtstrudl",
+					"match": "\\b(?i)DEFINE (GRO[up]{0,2}|GRP)\\b"
+				},
+				{
+					"name": "keyword.print-group.gtstrudl",
+					"match": "\\b(?i)PRI[nt]{0,2} GRO[up]{0,2}\\b"
+				},
+				{
+					"name": "keyword.print-generate.gtstrudl",
+					"match": "\\b(?i)PRI[NT]{0,2} GEN[ERATE]{0,5} (ON|OFF)\\b"
+				},
+				{
+					"name": "keyword.consistency-check.gtstrudl",
+					"match": "\\b(?i)CON[SISTENCY]{0,8} CHE[CK]{0,2}( RED[UCE]{0,3} BAND){0,1}\\b"
+				}
+			]
+		},
+		"geometry-commands":{
+			"patterns": [
+				{
+					"name": "keyword.joint-coordinates.gtstrudl",
+					"match": "\\b(?i)(JOI[NT]{0,2} COO[RDINATES]{0,8}( CAR[TESIAN]{0,6}| CYL[INDRCAL]{0,8}){0,1}|OFF[SET]{0,3})\\b"
+				},
+				{
+					"name": "keyword.generate-n-joints.gtstrdl",
+					"match": "\\b(?i)GEN[ERAT]{0,5} \\d JOI[NTS]{0,3}( CAR[TESIAN]{0,6}| CYL[INDRCAL]{0,8}){0,1}\\b"
+				},
+				{
+					"name": "keyword.delete-joints.gtstrudl",
+					"match": "\\b(?i)DEL[ET]{0,3} JOI[NTS]{0,3} WIT[HOUT]{0,4} (JOI[NT]{0,2} ){0,1}COO[RDINATES]{0,8}\\b"
+				},
+				{
+					"name": "keyword.type-command.gtstrudl",
+					"match": "\\b(?i)TYP[E]{0,1} ((PLA[NE]{0,2} (TRU[S]{0,2}|FRA[ME]{0,2}|GRI[D]{0,1})|SPA[CE]{0,2} (TRU[S]{0,2}|FRA[ME]{0,2}))|PLA[NE]{0,2} (STRE[S]{0,2}|STRA[IN]{0,2})|PLATE|TRI[DIMENSIONAL]{0,11}|AXI[SYMMETRIC]{0,9} STR[ES]{0,3})\\b"
+				},
+				{
+					"name": "keyword.member-element-incidences.gtstrudl",
+					"match": "\\b(?i)(MEM[BER]{0,3}|ELE[MENT]{0,4}){1} INC[IDENCES]{0,7}\\b"
+				},
+				{
+					"name": "keyword.generate-members.gtstrudl",
+					"match": "\\b(?i)GEN[ERATE]{0,5} \\d+ MEM[BERS]{0,4}\\b"
+				},
+				{
+					"name": "keyword.generate-elements.gtstrudl",
+					"match": "\\b(?i)GEN[ERATE]{0,5} \\d+ ELE[MENTS]{0,5}\\b"
+				},
+				{
+					"name": "keyword.delete-members.gtstrudl",
+					"match": "\\b(?i)DEL[ET]{0,3} MEM[BERS]{0,4} WIT[HOUT]{0,4} (MEM[BER]{0,3} ){0,1}INC[IDENCES]{0,7}\\b"
+				},
+				{
+					"name": "keyword.delete-elements.gtstrudl",
+					"match": "\\b(?i)DEL[ET]{0,3} (FINI[TE]{0,2} ){0,1}ELE[MENTS]{0,5} WIT[HOUT]{0,4} (ELE[MENT]{0,4} ){0,1}INC[IDENCES]{0,7}\\b"
+				},
+				{
+					"name": "keyword.define-object.gtstrudl",
+					"match": "\\b(?i)DEF[INE]{0,3} OBJ[ECT]{0,3}\\b"
+				}
+			]
 		}
 	},
 	"scopeName": "source.gti"
