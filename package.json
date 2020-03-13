@@ -7,7 +7,8 @@
         "vscode": "^1.43.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "contributes": {
         "languages": [{
@@ -20,6 +21,12 @@
             "language": "gtstrudl",
             "scopeName": "source.gti",
             "path": "./syntaxes/gtstrudl.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+                "language": "gtstrudl",
+                "path": "./snippets/gtstrudl-snippets.json"
+            }
+        ]
     }
 }

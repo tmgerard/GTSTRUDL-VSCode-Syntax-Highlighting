@@ -35,6 +35,12 @@
 				},
 				{
 					"include": "#member-and-finite-element-commands"
+				},
+				{
+					"include": "#static-loading-commands"
+				},
+				{
+					"include": "#load-combinations-and-static-analysis-commands"
 				}
 			]
 		},
@@ -293,6 +299,10 @@
 				{
 					"name": "keyword.beta-reference-joint.gtstrudl",
 					"match": "\\b(?i)BETA REF[ERENCE]{0,6}( JOI[NT]{0,2}){0,1}\\b"
+				},
+				{
+					"name": "keyword.calculate-memory-orientation.gtstrudl",
+					"match": "\\b(?i)CA[CULATE]{0,6} MEM[BER]{0,3} ORI[ENTATION]{0,8}( AX[IS]{0,2}( Y| Z){0,1}){0,1}( FRO[M]{0,1}){0,1}( VEC[TOR]{0,3}){0,1} (X \\d|Y \\d|Z \\d)+ MEM[BER]{0,3}\\b"
 				}
 			]
 		}
