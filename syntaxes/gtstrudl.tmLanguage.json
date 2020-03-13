@@ -25,10 +25,16 @@
 					"include": "#general-commands"
 				},
 				{
+					"include": "#database-commands"
+				},
+				{
 					"include": "#geometry-commands"
 				},
 				{
 					"include": "#boundary-condition-commands"
+				},
+				{
+					"include": "#member-and-finite-element-commands"
 				}
 			]
 		},
@@ -75,6 +81,42 @@
 				{
 					"name": "constant.numeric",
 					"match": "[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))"
+				}
+			]
+		},
+		"database-commands":{
+			"patterns": [
+				{
+					"name": "keyword.save.gtstrudl",
+					"match": "\\b(?i)SAVE\\b"
+				},
+				{
+					"name": "keyword.restore.gtstrudl",
+					"match": "\\b(?i)RESTORE\\b"
+				},
+				{
+					"name": "keyword.automatic-backup.gtstrudl",
+					"match": "\\b(?i)AUTO[MATIC]{0,5} BACK[UP]{0,2} (ON( INT[ERVAL]{0,5}){0,1}|OFF){1}\\b"
+				},
+				{
+					"name": "keyword.additions.gtstrudl",
+					"match": "\\b(?i)ADD[ITIONS]{0,6}\\b"
+				},
+				{
+					"name": "keyword.changes.gtstrudl",
+					"match": "\\b(?i)CHA[NGES]{0,4}\\b"
+				},
+				{
+					"name": "keyword.deletions.gtstrudl",
+					"match": "\\b(?i)DEL[ETIONS]{0,6}\\b"
+				},
+				{
+					"name": "keyword.active-inactive.gtstrudl",
+					"match": "\\b(?i)(ACT[IVE]{0,3}|INACT[IVE]{0,3}){1} (JOI[NTS]{0,3}|MEM[BERS]{0,4}|ELEM[ENTS]{0,4}|LOA[DS]{0,2}|MOD[ES]{0,2}){1} (ALL BUT|ALL){1}\\b"
+				},
+				{
+					"name": "keyword.loading-list.gtstrudl",
+					"match": "\\b(?i)LOA[DING]{0,4} LIS[T]{0,1} (ALL BUT|ALL){1}\\b"
 				}
 			]
 		},
@@ -196,10 +238,37 @@
 					"name": "keyword.locate-duplicate-joints.gtstrudl",
 					"match": "\\b(?i)LOC[ATE]{0,3} DUP[LICATE]{0,6} JOI[NTS]{0,3}( TOL[ERANCE]{0,6}){0,1}( AND){0,1}( REM[OVE]{0,3}){0,1}\\b"
 				}
-
 			]
 		},
 		"boundary-condition-commands":{
+			"patterns":[
+				{
+					"name": "keyword.status.gtstrudl",
+					"match": "\\b(?i)STA[TUS]{0,3} (F[REE]{0,3}|S[UPPORT]{0,6}|G[LOBAL]{0,5}|P[LANAR]{0,5}){1}( JOI[NTS]{0,3}){0,1}\\b"
+				},
+				{
+					"name": "keyword.determine-planar-joints.gtstrudl",
+					"match": "\\b(?i)DETE[RMINE]{0,5} PLA[NAR]{0,3}( JOI[NTS]{0,3}( TOL[ERANCE]{0,6}){0,1}){0,1}\\b"
+				},
+				{
+					"name": "keyword.joint-releases.gtstrudl",
+					"match": "\\b(?i)JOINT RELEASES\\b"
+				},
+				{
+					"name": "keyword.calculate-soil-spring-values.gtstrudl",
+					"match": "\\b(?i)CALC[ULATE]{0,5}( SOIL){0,1} SPR[ING]{0,3}( VAL[UES]{0,3}){0,1}(COM[PRESSION]{0,8}( ONLY){0,1}( NO( SUP[PPORT]{0,5}){0,1}( CHE[CK]{0,2}){0,1}){0,1} DIR[ECTION]{0,6} (X|Y|Z){1}( \\d){0,1}( (PLA[NE]{0,2} ){0,1}TOL[ERANCE]{0,6} \\d){0,1}( PLA[NE]{0,2} )ANG[LE]{0,2}( TOL[ERANCE]{0,6} \\d){0,1} (KS \\d ELE[MENTS]{0,5})+( APP[LY]{0,2}){0,1}( SHO[W]{0,1}( CAL[CS]{0,2}){0,1}){0,1}( INP[LANE]{0,4}( RAT[IO]{0,2}){0,1} \\d){0,1})\\b"
+				},
+				{
+					"name": "keyword.member-releases.gtstrudl",
+					"match": "\\b(?i)MEM[BER]{0,3} REL[EASES]{0,5}\\b"
+				},
+				{
+					"name": "keyword.member-eccentricities.gtstrudl",
+					"match": "\\b(?i)MEM[BER]{0,3} ECC[ENTRICITIES]{0,11}\\b"
+				}
+			]
+		},
+		"member-and-finite-element-commands":{
 			"patterns":[
 				{
 					"name": "keyword.member-properties.gtstrudl",
@@ -208,6 +277,22 @@
 				{
 					"name": "keyword.element-properties.gtstrudl",
 					"match": "\\b(?i)ELEM[ENT]{0,3} PROP[ERTIES]{0,6}\\b"
+				},
+				{
+					"name": "keyword.material.gtstrudl",
+					"match": "\\b(?i)MATER[IAL]{0,3} (ALU[MINUM]{0,5}|CON[CRETE]{0,5}|STE[EL]{0,2}){1} (ALL( MEM[BERS]{0,4}){0,1}|MEM[BERS]{0,4}){1}\\b"
+				},
+				{
+					"name": "keyword.constants.gtstrudl",
+					"match": "\\b(?i)CON[STANTS]{0,6}\\b"
+				},
+				{
+					"name": "keyword.calculate-eccentric-member-beta-angles.gtstrudl",
+					"match": "\\b(?i)CALC[ULATE]{0,5} ECC[ENTRIC]{0,6}( MEM[BER]{0,3}){0,1}( BET[A]{0,1}){0,1}( ANG[LES]{0,3}){0,1}( WIT[HOUT]{0,4} COM[MAND]{0,4}( LIS[TING]{0,4}){0,1}){0,1}\\b"
+				},
+				{
+					"name": "keyword.beta-reference-joint.gtstrudl",
+					"match": "\\b(?i)BETA REF[ERENCE]{0,6}( JOI[NT]{0,2}){0,1}\\b"
 				}
 			]
 		}
