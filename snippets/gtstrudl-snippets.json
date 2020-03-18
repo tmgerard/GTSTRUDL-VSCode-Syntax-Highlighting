@@ -1,6 +1,6 @@
 {
-    "Simple Project Start":{
-        "prefix": "simpleProjectStart",
+    "Simple Project Example":{
+        "prefix": "simple project example",
         "body":[
             "STRUDL '${1:Problem Name}' '${2:Title}'",
             "",
@@ -9,27 +9,90 @@
             "$-----------------------------------------------------------------------------------",
             "UNITS ${3:Length Unit} ${4:Force Unit} ${5:Angular Unit}",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Define nodes",
+            "$-----------------------------------------------------------------------------------",
             "JOINT COORDINATES",
             "1      X 0     Y 0     Z 0     S",
             "2      X 5     Y 0     Z 0     S",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Define structure type",
+            "$-----------------------------------------------------------------------------------",
             "TYPE ${6:Plane/Space} ${7:Truss/Frame/Grid}",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Release joint degrees of freedom",
+            "$-----------------------------------------------------------------------------------",
             "JOINT RELEASES",
+            "   $ node 1 is a pin",
+            "   1 MOMENT Z",
+            "   $ joint 2 is a roller",
+            "   2 MOMENT Z FORCE Z",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Define members",
+            "$-----------------------------------------------------------------------------------",
             "MEMBER INCIDENCES",
             "1      1       2",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Define materials",
+            "$-----------------------------------------------------------------------------------",
             "MATERIAL STEEL ALL MEMBERS",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Define member properties",
+            "$-----------------------------------------------------------------------------------",
             "MEMBER PROPERTIES PRISMATIC",
             "   1   AX 100.0 IX 100.0 IY 100.0 IZ 100.0",
             "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Define loads",
+            "$-----------------------------------------------------------------------------------",
             "LOADING 1 'Load Name'",
             "JOINT LOADS",
             "   1 FORCE Y -20.0",
             "",
-            "STIFFNESS ANALYSIS"
+            "$-----------------------------------------------------------------------------------",
+            "$ Run analysis",
+            "$-----------------------------------------------------------------------------------",
+            "STIFFNESS ANALYSIS",
+            "",
+            "$-----------------------------------------------------------------------------------",
+            "$ Show reactions calculated during the analysis",
+            "$-----------------------------------------------------------------------------------",
+            "LIST REACTIONS"
+        ]
+    },
+    "2D Node Coordinate Entry":{
+        "prefix": "node input (2D)",
+        "body":[
+            "${1:joint number}      X ${2:y-coordinate}     Y ${3:y-coordinate}"
+        ]
+    },
+    "2D Fixed-Node Coordinate Entry":{
+        "prefix": "fixed-node input (2D)",
+        "body":[
+            "${1:joint number}      X ${2:y-coordinate}     Y ${3:y-coordinate}     S"
+        ]
+    },
+    "3D Node Coordinate Entry":{
+        "prefix": "node input (3D)",
+        "body":[
+            "${1:joint number}      X ${2:y-coordinate}     Y ${3:y-coordinate}     Z ${4:z-coordinate}"
+        ]
+    },
+    "3D Fixed-Node Coordinate Entry":{
+        "prefix": "fixed-node input (3D)",
+        "body":[
+            "${1:joint number}      X ${2:y-coordinate}     Y ${3:y-coordinate}     Z ${4:z-coordinate}     S"
+        ]
+    },
+    "Units Entry":{
+        "prefix": "units",
+        "body":[
+            "UNITS ${1:Length Unit} ${2:Force Unit} ${3:Angular Unit}"
         ]
     }
 }
