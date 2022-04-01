@@ -80,20 +80,20 @@
 		"constants":{
 			"patterns": [
 				{
-					"name": "constant.character.linebreak.gtstrudl",
-					"match": " -"
-				},
-				{
-					"name": "constant.language.units.gtstrudl",
-					"match": "\\b(?i)(IN[CHES]{0,4}|(FT|FEET)|CM|M|MM|LBS|KIP|TON|MTON|KG|N|KN|MN|RAD[IANS]{0,4}|DEG[RES]{0,4}|CYC[LES]{0,3}|FAH[RENHIT]{0,7}|CEN[TIGRADE]{0,7}|SEC[ONDS]{0,4}|MIN[UTES]{0,4}|HOU[RS]{0,2}|STAN[DAR]{0,4}|STDM[AS]{0,3}|GRAM|KGM|MTMN)\\b"
-				},
-				{
 					"name": "constant.numeric.integer.gtstrudl",
 					"match": "\\b[+-]?\\d+\\b"
 				},
 				{
 					"name": "constant.numeric.float.gtstrudl",
 					"match": "\\b[+-]?\\d+\\.\\d*\\b"
+				},
+				{
+					"name": "constant.character.linebreak.gtstrudl",
+					"match": " -"
+				},
+				{
+					"name": "constant.language.units.gtstrudl",
+					"match": "\\b(?i)(IN[CHES]{0,4}|(FT|FEET)|CM|M|MM|LBS|KIP|TON|MTON|KG|N|KN|MN|RAD[IANS]{0,4}|DEG[RES]{0,4}|CYC[LES]{0,3}|FAH[RENHIT]{0,7}|CEN[TIGRADE]{0,7}|SEC[ONDS]{0,4}|MIN[UTES]{0,4}|HOU[RS]{0,2}|STAN[DAR]{0,4}|STDM[AS]{0,3}|GRAM|KGM|MTMN)\\b"
 				}
 			]
 		},
@@ -379,6 +379,34 @@
 				{
 					"name": "keyword.joint-displacement-list.gtstrudl",
 					"match": "\\b(?i)(DIS[PLACEMENT]{0,9}|ROT[ATION]{0,5})\\b"
+				},
+				{
+					"name": "keyword.member-loads.gtstrudl",
+					"match": "\\b(?i)MEM[BER]{0,3} LOA[DS]{0,2}\\b"
+				},
+				{
+					"name": "keyword.member-load-direction-spec.gtstrudl",
+					"match": "\\b(?i)(FOR[CE]{0,2}|MOM[ENT]{0,3}) [XYZ] ?((GLO[BAL]{0,3})?( ?PRO[JECTED]{0,6})?)?\\b"
+				},
+				{
+					"name": "keyword.concentrated-force.gtstrudl",
+					"match": "\\b(?i)CON[CENTRATED]{0,9} ?(FR[ACTIONAL]{0,8})?\\b"
+				},
+				{
+					"name": "keyword.uniform-force.gtstrudl",
+					"match": "\\b(?i)UNI[FORM]{0,4} ?(FR[ACTIONAL]{0,8})?\\b"
+				},
+				{
+					"name": "keyword.linear-force.gtstrudl",
+					"match": "\\b(?i)LIN[EAR]{0,3} ?(FR[ACTIONAL]{0,8})?\\b"
+				},
+				{
+					"name": "keyword.optional-loading-data-labels.gtstrudl",
+					"match": "\\b(?i)(P|M|W|WA|L|LA|LB)\\b"
+				},
+				{
+					"name": "keyword.loading-combination.gtstrudl",
+					"match": "\\b(?i)(LOA[DING]{0,4} COM[BINATION]{0,8}|SPE[CIFICATIONS]{0,116})\\b"
 				}
 			]
 		}
