@@ -26,6 +26,10 @@
             {
                 "language": "gtstrudl",
                 "path": "./snippets/gtstrudl-snippets.json"
+            },
+            {
+                "language": "gtstrudl",
+                "path": "./snippets/example-snippets.json"
             }
         ]
     }
