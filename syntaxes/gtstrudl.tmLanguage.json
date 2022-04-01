@@ -403,10 +403,19 @@
 				{
 					"name": "keyword.optional-loading-data-labels.gtstrudl",
 					"match": "\\b(?i)(P|M|W|WA|L|LA|LB)\\b"
-				},
+				}
+			]
+		},
+		"load-combinations-and-static-analysis-commands":
+		{
+			"patterns": [
 				{
 					"name": "keyword.loading-combination.gtstrudl",
 					"match": "\\b(?i)(LOA[DING]{0,4} COM[BINATION]{0,8}|SPE[CIFICATIONS]{0,116})\\b"
+				},
+				{
+					"name": "keyword.stiff-analysis.gtstrudl",
+					"match": "\\b(?i)STIFFN[ESS]{0,3} ?(ANAL[YSIS]{0,4})?\\b"
 				}
 			]
 		}
