@@ -37,6 +37,9 @@
 					"include": "#member-and-finite-element-commands"
 				},
 				{
+					"include": "#constants-commands"
+				},
+				{
 					"include": "#static-loading-commands"
 				},
 				{
@@ -85,8 +88,12 @@
 					"match": "\\b(?i)(IN[CHES]{0,4}|(FT|FEET)|CM|M|MM|LBS|KIP|TON|MTON|KG|N|KN|MN|RAD[IANS]{0,4}|DEG[RES]{0,4}|CYC[LES]{0,3}|FAH[RENHIT]{0,7}|CEN[TIGRADE]{0,7}|SEC[ONDS]{0,4}|MIN[UTES]{0,4}|HOU[RS]{0,2}|STAN[DAR]{0,4}|STDM[AS]{0,3}|GRAM|KGM|MTMN)\\b"
 				},
 				{
-					"name": "constant.numeric",
-					"match": "[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))"
+					"name": "constant.numeric.integer.gtstrudl",
+					"match": "\\b[+-]?\\d+\\b"
+				},
+				{
+					"name": "constant.numeric.float.gtstrudl",
+					"match": "\\b[+-]?\\d+\\.\\d*\\b"
 				}
 			]
 		},
@@ -288,10 +295,7 @@
 					"name": "keyword.material.gtstrudl",
 					"match": "\\b(?i)MATER[IAL]{0,3} (ALU[MINUM]{0,5}|CON[CRETE]{0,5}|STE[EL]{0,2}){1} (ALL( MEM[BERS]{0,4}){0,1}|MEM[BERS]{0,4}){1}\\b"
 				},
-				{
-					"name": "keyword.constants.gtstrudl",
-					"match": "\\b(?i)CON[STANTS]{0,6}\\b"
-				},
+				
 				{
 					"name": "keyword.calculate-eccentric-member-beta-angles.gtstrudl",
 					"match": "\\b(?i)CALC[ULATE]{0,5} ECC[ENTRIC]{0,6}( MEM[BER]{0,3}){0,1}( BET[A]{0,1}){0,1}( ANG[LES]{0,3}){0,1}( WIT[HOUT]{0,4} COM[MAND]{0,4}( LIS[TING]{0,4}){0,1}){0,1}\\b"
@@ -303,6 +307,78 @@
 				{
 					"name": "keyword.calculate-memory-orientation.gtstrudl",
 					"match": "\\b(?i)CA[CULATE]{0,6} MEM[BER]{0,3} ORI[ENTATION]{0,8}( AX[IS]{0,2}( Y| Z){0,1}){0,1}( FRO[M]{0,1}){0,1}( VEC[TOR]{0,3}){0,1} (X \\d|Y \\d|Z \\d)+ MEM[BER]{0,3}\\b"
+				}
+			]
+		},
+		"constants-commands":{
+			"patterns":[
+				{
+					"name": "keyword.constants.gtstrudl",
+					"match": "\\b(?i)CON[STANTS]{0,6}\\b"
+				},
+				{
+					"name": "keyword.elastic-modulus.gtstrudl",
+					"match": "\\b(?i)E\\b"
+				},
+				{
+					"name": "keyword.shear-modulus.gtstrudl",
+					"match": "\\b(?i)G\\b"
+				},
+				{
+					"name": "keyword.poissons-ratio.gtstrudl",
+					"match": "\\b(?i)POI[SSON]{0,4}\\b"
+				},
+				{
+					"name": "keyword.coefficient-of-thermal-expansion.gtstrudl",
+					"match": "\\b(?i)CTE\\b"
+				},
+				{
+					"name": "keyword.density.gtstrudl",
+					"match": "\\b(?i)DEN[SITY]{0,4}\\b"
+				},
+				{
+					"name": "keyword.beta-angle.gtstrudl",
+					"match": "\\b(?i)BET[A]?\\b"
+				},
+				{
+					"name": "keyword.member-application.gtstrudl",
+					"match": "\\b(?i)(All ?BUT ?\\d?(MEM[BER]{0,3})?|ALL ?(MEM[BERS]{0,4})?|MEM[BERS]{0,4})\\b"
+				},
+				{
+					"name": "keyword.range-indicator.gtstrudl",
+					"match": "\\b(?i)TO\\b"
+				}
+			]
+		},
+		"static-loading-commands":{
+			"patterns":[
+				{
+					"name": "keyword.loading.gtstrudl",
+					"match": "\\b(?i)LOA[DING]{0,4}\\b"
+				},
+				{
+					"name": "keyword.self-weight-loading.gtstrudl",
+					"match": "\\b(?i)(SELF +WEI[GHT]{0,3} +LOA[DING]{0,4}|DIR[ECTION]{0,6}|FAC[TOR]{0,3}|INCLUDE ?(F[INITE]{0,5})? ?(E[LEMENTS]{0,7}))\\b"
+				},
+				{
+					"name": "keyword.dead-loading.gtstrudl",
+					"match": "\\b(?i)(DEAD +LOA[DING]{0,4}|DIR[ECTION]{0,6}|FAC[TOR]{0,3}|INCLUDE ?(F[INITE]{0,5})? ?(E[LEMENTS]{0,7}))\\b"
+				},
+				{
+					"name": "keyword.joint-load.gtstrudl",
+					"match": "\\b(?i)JO[INT]{0,3} LOA[DS]{0,2}\\b"
+				},
+				{
+					"name": "keyword.joint-load-list.gtstrudl",
+					"match": "\\b(?i)(FOR[CE]{0,2}|MOM[ENT]{0,3})\\b"
+				},
+				{
+					"name": "keyword.joint-displacements.gtstrudl",
+					"match": "\\b(?i)JO[INT]{0,3} DIS[PLACEMENTS]{0,10}\\b"
+				},
+				{
+					"name": "keyword.joint-displacement-list.gtstrudl",
+					"match": "\\b(?i)(DIS[PLACEMENT]{0,9}|ROT[ATION]{0,5})\\b"
 				}
 			]
 		}
