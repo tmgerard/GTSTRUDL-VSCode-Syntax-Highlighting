@@ -89,7 +89,7 @@
 				},
 				{
 					"name": "constant.character.linebreak.gtstrudl",
-					"match": " -"
+					"match": "-\n"
 				},
 				{
 					"name": "constant.language.units.gtstrudl",
@@ -345,7 +345,7 @@
 					"match": "\\b(?i)(All ?BUT ?\\d?(MEM[BER]{0,3})?|ALL ?(MEM[BERS]{0,4})?|MEM[BERS]{0,4})\\b"
 				},
 				{
-					"name": "keyword.range-indicator.gtstrudl",
+					"name": "keyword.control.range-indicator.gtstrudl",
 					"match": "\\b(?i)TO\\b"
 				}
 			]
